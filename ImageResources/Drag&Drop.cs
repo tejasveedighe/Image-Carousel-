@@ -26,7 +26,6 @@ namespace ImageResources
         }
 
         private void Drag_Drop_DragEnter(object sender, DragEventArgs e)
-
         {
             string filename;
             validData = GetFilename(out filename, e);
@@ -46,7 +45,7 @@ namespace ImageResources
             filename = String.Empty;
             if ((e.AllowedEffect & DragDropEffects.Copy) == DragDropEffects.Copy)
             {
-                Array data = ((IDataObject)e.Data).GetData("FileDrop") as Array;
+                Array data = e.Data.GetData("FileDrop") as Array;
                 if (data != null)
                 {
                     if ((data.Length == 1) && (data.GetValue(0) is String))

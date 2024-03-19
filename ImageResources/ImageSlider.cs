@@ -2,8 +2,8 @@ namespace ImageResources
 {
     public partial class ImageSlider : Form
     {
-        private int imageIndex { get; set; } = 0;
-        public List<Image> images;
+        int imageIndex { get; set; } = 0;
+        List<Image> images;
         System.Windows.Forms.Timer timer;
         public ImageSlider() => InitializeComponent();
         private void ToggleTimer()
