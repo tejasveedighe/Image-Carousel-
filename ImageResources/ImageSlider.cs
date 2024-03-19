@@ -3,7 +3,7 @@ namespace ImageResources
     public partial class ImageSlider : Form
     {
         private int imageIndex { get; set; } = 0;
-        private List<Image> images;
+        public List<Image> images;
         System.Windows.Forms.Timer timer;
         public ImageSlider() => InitializeComponent();
         private void ToggleTimer()
@@ -91,6 +91,11 @@ namespace ImageResources
         private void ExcuteBtn_Click(object sender, EventArgs e)
         {
             this.Activate();
+        }
+
+        private void addImageBtn_Click(object sender, EventArgs e)
+        {
+            (new Drag_Drop()).Show();
         }
     }
 }

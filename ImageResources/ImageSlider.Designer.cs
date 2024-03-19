@@ -42,6 +42,7 @@
             ExcuteBtn = new ToolStripMenuItem();
             CloseAppBtn = new ToolStripMenuItem();
             label1 = new Label();
+            addImageBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -144,11 +145,22 @@
             label1.TabIndex = 5;
             label1.Text = "Current Image:";
             // 
+            // addImageBtn
+            // 
+            addImageBtn.Location = new Point(344, 335);
+            addImageBtn.Name = "addImageBtn";
+            addImageBtn.Size = new Size(75, 23);
+            addImageBtn.TabIndex = 6;
+            addImageBtn.Text = "Add Image";
+            addImageBtn.UseVisualStyleBackColor = true;
+            addImageBtn.Click += addImageBtn_Click;
+            // 
             // ImageSlider
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(460, 486);
+            Controls.Add(addImageBtn);
             Controls.Add(label1);
             Controls.Add(startBtn);
             Controls.Add(imageCount);
@@ -178,5 +190,6 @@
         private ToolStripMenuItem ExcuteBtn;
         private ToolStripMenuItem CloseAppBtn;
         private Label label1;
+        private Button addImageBtn;
     }
 }
