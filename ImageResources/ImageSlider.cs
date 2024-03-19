@@ -1,11 +1,11 @@
 namespace ImageResources
 {
-    public partial class Form1 : Form
+    public partial class ImageSlider : Form
     {
         private int imageIndex { get; set; } = 0;
         private List<Image> images;
         System.Windows.Forms.Timer timer;
-        public Form1()
+        public ImageSlider()
         {
             InitializeComponent();
         }

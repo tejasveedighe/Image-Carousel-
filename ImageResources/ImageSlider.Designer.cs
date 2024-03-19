@@ -1,6 +1,6 @@
 ﻿namespace ImageResources
 {
-    partial class Form1
+    partial class ImageSlider
     {
         /// <summary>
         ///  Required designer variable.
