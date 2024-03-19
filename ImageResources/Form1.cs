@@ -12,6 +12,8 @@ namespace ImageResources
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
+            if (timer.Enabled) timer.Stop();
+
             pictureBox1.Image = images[imageIndex++];
 
             if (imageIndex > 7) imageIndex = 0;
@@ -46,6 +48,7 @@ namespace ImageResources
 
         private void prevBtn_Click(object sender, EventArgs e)
         {
+            if (timer.Enabled) timer.Stop();
 
             pictureBox1.Image = images[imageIndex--];
 
