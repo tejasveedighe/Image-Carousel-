@@ -5,22 +5,21 @@ namespace ImageResources
         private int imageIndex { get; set; } = 0;
         private List<Image> images;
         System.Windows.Forms.Timer timer;
-        public ImageSlider()
+        public ImageSlider() => InitializeComponent();
+        private void ToggleTimer()
         {
-            InitializeComponent();
+            if (timer.Enabled)
+            {
+                timer.Stop();
+                timer.Dispose();
+                startBtn.Text = "Start";
+            }
+            else
+            {
+                timer.Start();
+                startBtn.Text = "Stop";
+            }
         }
-
-        private void StartBtn_Click(object sender, EventArgs e)
-        {
-            if (timer.Enabled) timer.Stop();
-
-            pictureBox1.Image = images[imageIndex++];
-
-            if (imageIndex > 7) imageIndex = 0;
-
-            imageCount.Text = imageIndex.ToString();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -44,11 +43,27 @@ namespace ImageResources
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 1500;
             timer.Tick += Timer_Tick;
+
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+            notifyIcon1.BalloonTipText = "I am NotifyIcon Ballon";
+            notifyIcon1.BalloonTipTitle = "Welcome Message";
+            notifyIcon1.Text = "My Application";
+            notifyIcon1.Visible = true;
+            notifyIcon1.ShowBalloonTip(1000);
+        }
+
+        private void nextBtn_Click(object sender, EventArgs e)
+        {
+
+            pictureBox1.Image = images[imageIndex++];
+
+            if (imageIndex > 7) imageIndex = 0;
+
+            imageCount.Text = imageIndex.ToString();
         }
 
         private void prevBtn_Click(object sender, EventArgs e)
         {
-            if (timer.Enabled) timer.Stop();
 
             pictureBox1.Image = images[imageIndex--];
 
@@ -59,13 +74,23 @@ namespace ImageResources
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            StartBtn_Click(sender, e);
-            if (imageIndex > 7) timer.Stop();
+            nextBtn_Click(sender, e);
+            if (imageIndex == 6) timer.Stop();
         }
 
         private void startBtn_Click_1(object sender, EventArgs e)
         {
-            timer.Start();
+            ToggleTimer();
+        }
+
+        private void CloseAppBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ExcuteBtn_Click(object sender, EventArgs e)
+        {
+            this.Activate();
         }
     }
 }
